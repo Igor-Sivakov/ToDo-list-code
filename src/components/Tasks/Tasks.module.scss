@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
+
+.root {
+  width: 100%;
+  margin-bottom: 40px;
+
+  a {
+    text-decoration: none;
+  }
+
+  .title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    line-height: 38px;
+    font-size: 32px;
+    color: #ff6464;
+    border-bottom: 1px solid #f2f2f2;
+    padding-bottom: 20px;
+
+    @media (max-width: 650px) {
+      font-size: 24px;
+      line-height: 28px;
+      padding-bottom: 10px;
+    }
+
+    &:hover {
+      img {
+        opacity: 0.3;
+      }
+    }
+
+    img {
+      opacity: 0;
+      margin-left: 15px;
+      width: 16px;
+      cursor: pointer;
+
+      @media (max-width: 650px) {
+        width: 14px;
+      }
+
+      @media (max-width: 450px) {
+        margin-left: 10px;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .renameList_input {
+    border-bottom: 1px solid #f2f2f2;
+    padding-bottom: 26px;
+    input {
+      max-width: 350px;
+      width: 100%;
+    }
+  }
+
+  .addBtn {
+    align-items: center;
+    cursor: pointer;
+
+    svg {
+      width: 16px;
+      margin: 0px 20px 0px 3px;
+      path {
+        transition: stroke 0.2s ease-in-out;
+        stroke: #c4c9d0;
+      }
+    }
+
+    span {
+      transition: color 0.2s ease-in-out;
+      color: #9da4ae;
+    }
+
+    &:hover {
+      svg {
+        path {
+          stroke: #55606a;
+        }
+      }
+      span {
+        color: #4d5761;
+      }
+    }
+  }
+}

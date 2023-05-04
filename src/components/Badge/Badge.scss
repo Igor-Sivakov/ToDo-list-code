@@ -1,0 +1,39 @@
+.badge {
+  border-radius: 20px;
+
+  &__green {
+    background-color: #42b883;
+  }
+
+  &__blue {
+    background-color: #64c4ed;
+  }
+
+  &__pink {
+    background-color: #ffbbcc;
+  }
+
+  &__grey {
+    background-color: #c9d1d3;
+  }
+
+  &__lime {
+    background-color: #b6e6bd;
+  }
+
+  &__purple {
+    background-color: #c355f5;
+  }
+
+  &__black {
+    background-color: #1d2939;
+  }
+
+  &__red {
+    background-color: #ff6464;
+  }
+
+  &.selected {
+    border: 2px solid #98a2b3;
+  }
+}
