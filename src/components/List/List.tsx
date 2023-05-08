@@ -1,11 +1,17 @@
 import { FC } from 'react'
-import cn from 'classnames'
 import { Link, useNavigate } from 'react-router-dom'
+import cn from 'classnames'
+
 import removeSvg from '../../assets/img/remove.svg'
+
 import { useAppDispatch } from '../../redux/store'
-import { ListType } from '../../redux/lists/listSlice'
+
 import { fetchRemoveList } from '../../redux/lists/asyncActions'
+
+import { ListType } from '../../redux/lists/listSlice'
+
 import { Badge } from '..'
+
 import styles from '../SideBar/SideBar.module.scss'
 
 type PropsType = {
@@ -44,9 +50,11 @@ export const List: FC<PropsType> = ({
         <div>
           <Badge color={item.color} />
         </div>
+
         <span>
           {item.name} {`(${item.tasksCount ? item.tasksCount : 0})`}
         </span>
+
         <img
           src={removeSvg}
           className={styles.menu__removeIcon}

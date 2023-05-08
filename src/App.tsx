@@ -1,15 +1,20 @@
 import { FC, useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
+
 import { useAppDispatch, useAppSelector } from './redux/store'
+
+import { fetchLists, fetchActiveList } from './redux/lists/asyncActions'
+import { fetchTasks } from './redux/tasks/asyncActions'
+import { addListTasksCount } from './redux/lists/listSlice'
+
 import {
   getChosenTaskSelect,
   getListItemsSelect,
 } from './redux/lists/selectors'
 import { getTaskItemsSelect } from './redux/tasks/selectors'
-import { fetchLists, fetchActiveList } from './redux/lists/asyncActions'
-import { fetchTasks } from './redux/tasks/asyncActions'
-import { addListTasksCount } from './redux/lists/listSlice'
+
 import { Tasks, SideBar } from './components'
+
 import styles from './App.module.scss'
 import './index.scss'
 
@@ -41,6 +46,7 @@ const App: FC = () => {
     <div className={styles.root}>
       <div className={styles.container}>
         <SideBar items={listsState} activeList={chosenTask} />
+
         <main className={styles.main_content}>
           <Routes>
             <Route
@@ -49,12 +55,14 @@ const App: FC = () => {
                 <Tasks key={list.id} list={list} items={tasksState} />
               ))}
             />
+
             {chosenTask && (
               <Route
                 path='/:id'
                 element={<Tasks list={chosenTask} items={tasksState} />}
               />
             )}
+
             <Route
               path='*'
               element={
@@ -64,6 +72,7 @@ const App: FC = () => {
               }
             />
           </Routes>
+
           {!listsState.length && (
             <div className='notFound'>
               <p>Lists not found</p>

@@ -1,14 +1,19 @@
 import { ChangeEvent, FC, useState } from 'react'
+
 import editIcon from '../../assets/img/edit.svg'
 import removeSvg from '../../assets/img/remove.svg'
 import { checkboxSvg } from '../../assets/svgTSX/svg'
+
 import { useAppDispatch } from '../../redux/store'
-import { TaskType } from '../../redux/tasks/taskSlice'
+
 import {
   fetchCompleteTask,
   fetchEditTask,
   fetchRemoveTask,
 } from '../../redux/tasks/asyncActions'
+
+import { TaskType } from '../../redux/tasks/taskSlice'
+
 import styles from './Task.module.scss'
 
 type PropsType = {
@@ -49,6 +54,7 @@ export const Task: FC<PropsType> = ({ item }) => {
         />
         <label htmlFor={`task-${item.id}`}>{checkboxSvg}</label>
       </div>
+
       {isEditTask ? (
         <input
           value={editTaskInputValue}
@@ -61,6 +67,7 @@ export const Task: FC<PropsType> = ({ item }) => {
       ) : (
         <div className={styles.text}>
           {item.text}
+
           <div className={styles.editBar}>
             <img
               onClick={() => openTaskEditor(item.text)}
@@ -68,6 +75,7 @@ export const Task: FC<PropsType> = ({ item }) => {
               alt='editIcon'
               className={styles.item__editIcon}
             />
+
             <img
               onClick={() => dispatch(fetchRemoveTask(item.id))}
               src={removeSvg}

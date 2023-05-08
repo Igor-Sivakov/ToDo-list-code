@@ -1,14 +1,20 @@
 import { FC, memo, useEffect, useState } from 'react'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
+
 import listSvg from '../../assets/img/list.svg'
 import addSvg from '../../assets/img/add.svg'
 import rightSvg from '../../assets/img/right.svg'
 import leftSvg from '../../assets/img/left.svg'
+
 import { useAppDispatch, useAppSelector } from '../../redux/store'
+
 import { getChosenList, ListType } from '../../redux/lists/listSlice'
+
 import { getListStatusSelect } from '../../redux/lists/selectors'
+
 import { AddListPopup, List } from '..'
+
 import styles from './SideBar.module.scss'
 
 type PropsType = {
@@ -56,6 +62,7 @@ export const SideBar: FC<PropsType> = memo(({ items, activeList }) => {
         src={isSmallMenu ? rightSvg : leftSvg}
         alt='menu togglerIcon'
       />
+
       <ul className={styles.menu}>
         <li
           onClick={onClickShowAllLists}
@@ -92,6 +99,7 @@ export const SideBar: FC<PropsType> = memo(({ items, activeList }) => {
           {!isSmallMenu && <span>Add list</span>}
         </li>
       </ul>
+
       {showPopup && <AddListPopup onClickClose={setShowPopup} />}
     </section>
   )

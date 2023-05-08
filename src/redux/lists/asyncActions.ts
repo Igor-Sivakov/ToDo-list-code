@@ -1,5 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
+
 import DB from '../../assets/db.json'
+
 import { listAPI } from "../../API/API"
 import { ListType } from "./listSlice"
 

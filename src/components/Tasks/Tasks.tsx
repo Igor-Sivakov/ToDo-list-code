@@ -1,14 +1,21 @@
 import { FC, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+
 import editIcon from '../../assets/img/edit.svg'
 import { taskAddBtnSvg } from '../../assets/svgTSX/svg'
+
 import { useAppDispatch, useAppSelector } from '../../redux/store'
-import { getChosenList, ListType } from '../../redux/lists/listSlice'
-import { TaskType } from '../../redux/tasks/taskSlice'
-import { getTaskStatusSelect } from '../../redux/tasks/selectors'
+
 import { fetchEditList } from '../../redux/lists/asyncActions'
 import { fetchAddTask } from '../../redux/tasks/asyncActions'
+
+import { getChosenList, ListType } from '../../redux/lists/listSlice'
+import { TaskType } from '../../redux/tasks/taskSlice'
+
+import { getTaskStatusSelect } from '../../redux/tasks/selectors'
+
 import { Task } from '..'
+
 import styles from './Tasks.module.scss'
 import '../../index.scss'
 
@@ -91,6 +98,7 @@ export const Tasks: FC<PropsType> = ({ items, list }) => {
           </h1>
         </Link>
       )}
+
       {!tasks.length ? (
         <div style={{ margin: '50px 0' }} className='notFound'>
           <p>Tasks not found</p>
@@ -98,11 +106,13 @@ export const Tasks: FC<PropsType> = ({ items, list }) => {
       ) : (
         tasks.map((item) => <Task key={item.id} item={item} />)
       )}
+
       {isLoading && (
         <div style={{ margin: '20px 0px 0px 39px', opacity: 0.6 }}>
           Loading new or exist edited task...
         </div>
       )}
+
       <div style={{ marginTop: '30px', height: '40px' }}>
         {isAddTask ? (
           <input

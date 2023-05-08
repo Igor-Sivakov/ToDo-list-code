@@ -1,9 +1,15 @@
 import { FC, useState } from 'react'
+
 import DB from '../../assets/db.json'
+
 import closeSvg from '../../assets/img/close.svg'
+
 import { useAppDispatch } from '../../redux/store'
+
 import { fetchAddList } from '../../redux/lists/asyncActions'
+
 import { Badge } from '..'
+
 import styles from './AddListPopup.module.scss'
 import '../../index.scss'
 
@@ -39,6 +45,7 @@ export const AddListPopup: FC<PropsType> = ({ onClickClose }) => {
         src={closeSvg}
         alt='closeIcon'
       />
+
       <input
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
@@ -46,6 +53,7 @@ export const AddListPopup: FC<PropsType> = ({ onClickClose }) => {
         placeholder='Enter list name...'
         className='field'
       />
+
       <div className={styles.colors}>
         {colors.map((color) => (
           <Badge
@@ -56,6 +64,7 @@ export const AddListPopup: FC<PropsType> = ({ onClickClose }) => {
           />
         ))}
       </div>
+
       <button onClick={addListSubmit} className='button'>
         Add list
       </button>
